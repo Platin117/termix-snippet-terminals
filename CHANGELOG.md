@@ -1,8 +1,9 @@
 # Changelog
 
-## 0.7.0
+## 0.7.0-beta.1
 
-The first version worth publishing. Everything before it was written and
+The first version published. A beta: it runs a real set of hosts every
+day here, but nobody else has had it in their hands yet. Everything before it was written and
 thrown away in one sitting while testing against a real set of hosts; the
 entries below describe what the plugin does now, not that road.
 
