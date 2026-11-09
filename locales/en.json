@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "panel": "Snippet Terminals"
+  },
+  "panel": {
+    "hint": "Press play: a terminal opens per host and the command is typed into it. Prompts and errors stay on screen.",
+    "search": "Search snippets",
+    "reload": "Reload snippets",
+    "loading": "Loading snippets...",
+    "noSnippets": "No snippets found. Save one in the Snippets panel, then it shows up here.",
+    "noMatch": "No snippet matches.",
+    "noHostsYet": "Pick hosts",
+    "hostCount": "{{count}} hosts",
+    "filterHosts": "Filter hosts",
+    "loadingHosts": "Loading hosts...",
+    "noHostsMatch": "No host with SSH matches.",
+    "selectAll": "All",
+    "selectNone": "None",
+    "run": "Run in {{count}} terminals",
+    "running": "running",
+    "pasteOnly": "Paste only, do not press Enter",
+    "stop": "Stop the run",
+    "stagger": "Gap",
+    "seconds": "{{value}} s",
+    "staggerHint": "How long each terminal gets in front, so Termix connects it. After that they all connect side by side. Too short and a tab stays empty.",
+    "edit": "Edit in the Snippets panel"
+  },
+  "palette": {
+    "group": "Run in terminals",
+    "hint": "Opens a terminal per host"
+  },
+  "status": {
+    "pending": "waiting",
+    "opening": "opening",
+    "waiting": "connecting",
+    "sent": "sent",
+    "noSsh": "no SSH",
+    "timeout": "no terminal",
+    "failed": "failed",
+    "stopped": "stopped",
+    "unreachable": "no connection"
+  },
+  "toast": {
+    "allSent": "Sent to {{count}} terminals",
+    "someSent": "Sent to {{count}} of {{total}} terminals",
+    "noneSent": "No terminal received the command",
+    "pickHosts": "Pick the hosts this snippet should run on first.",
+    "needsInputs": "This snippet asks for input; fill it in below, then start.",
+    "secrets": "This snippet uses saved secrets ({{names}}). Those are only filled in by the Snippets plugin's own run, so it cannot be sent to a terminal from here.",
+    "stopped": "Stopped, {{count}} terminals already had the command"
+  },
+  "settings": {
+    "hostsBySnippet": "Hosts per snippet",
+    "hostsBySnippetHint": "Which hosts each snippet opens a terminal on.",
+    "runOptions": "Run options",
+    "runOptionsHint": "Whether the command is only pasted instead of run."
+  }
+}

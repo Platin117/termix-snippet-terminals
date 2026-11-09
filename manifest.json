@@ -1,0 +1,77 @@
+{
+  "id": "snippet-terminals",
+  "name": "Snippet Terminals",
+  "version": "0.7.0",
+  "description": "Start a saved snippet from one list: it opens a terminal tab per host and types the command in, where you can answer prompts and read what happened.",
+  "author": {
+    "name": "Platin117"
+  },
+  "license": "Apache-2.0",
+  "category": "Terminal",
+  "icon": "SquareTerminal",
+  "features": [
+    "Your snippets in a list, one click starts a run",
+    "One terminal tab per host, opened and connected for you",
+    "The connections are made side by side, not one after another",
+    "The hosts a snippet runs on are set once and remembered",
+    "Prompts, sudo questions and errors stay on screen",
+    "An offline host is skipped without holding up the rest"
+  ],
+  "env": [],
+  "engine": {
+    "termix": ">=26.10.3",
+    "api": "^1.6"
+  },
+  "capabilities": [
+    "ui:surface",
+    "hosts:read"
+  ],
+  "optionalDependencies": {
+    "snippets": "^1.2.0"
+  },
+  "dependencies": {
+    "ssh-terminal": "^1.3.0"
+  },
+  "contributes": {
+    "panels": [
+      {
+        "id": "snippet-terminals",
+        "titleKey": "nav.panel",
+        "icon": "SquareTerminal"
+      }
+    ],
+    "uses": [
+      "terminal.open",
+      "terminal.listSessions",
+      "terminal.sendToSession",
+      "snippets.list"
+    ],
+    "settings": {
+      "user": [
+        {
+          "key": "hostsBySnippet",
+          "type": "json",
+          "labelKey": "settings.hostsBySnippet",
+          "descriptionKey": "settings.hostsBySnippetHint",
+          "default": null,
+          "hidden": true
+        },
+        {
+          "key": "runOptions",
+          "type": "json",
+          "labelKey": "settings.runOptions",
+          "descriptionKey": "settings.runOptionsHint",
+          "default": null,
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "locales": "locales",
+  "platforms": [
+    "linux",
+    "win32",
+    "darwin"
+  ],
+  "repository": "https://github.com/Platin117/termix-snippet-terminals"
+}

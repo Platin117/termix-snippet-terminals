@@ -1,0 +1,86 @@
+name: Release
+
+# A tag is the whole ritual: build, test, pack, sign, publish, and write the
+# version into the shared registry index so installed copies see the update.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # A tag that disagrees with the manifest would publish a package whose
+      # name and contents point at different versions.
+      - name: Check the tag against the manifest
+        run: |
+          manifest=$(node -p "require('./manifest.json').version")
+          tag="${GITHUB_REF_NAME#v}"
+          if [ "$manifest" != "$tag" ]; then
+            echo "Tag $GITHUB_REF_NAME, manifest $manifest" >&2
+            exit 1
+          fi
+
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm test
+      - run: npx termix-plugin validate
+      - run: npx termix-plugin pack
+
+      - name: Sign
+        env:
+          TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
+        run: |
+          if [ -z "$TERMIX_PLUGIN_SIGNING_KEY" ]; then
+            echo "The TERMIX_PLUGIN_SIGNING_KEY secret is not set." >&2
+            echo "Without it the registry cannot install this release." >&2
+            exit 1
+          fi
+          npx termix-plugin sign "$(ls *.tmxplug)"
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npx termix-plugin changelog --version "${GITHUB_REF_NAME#v}" > notes.md
+          # A dash in the version is a prerelease, here and in the index.
+          case "$GITHUB_REF_NAME" in *-*) pre=--prerelease ;; *) pre= ;; esac
+          gh release create "$GITHUB_REF_NAME" *.tmxplug $pre \
+            --title "$GITHUB_REF_NAME" --notes-file notes.md
+
+      # Last, so a failure above never leaves the index pointing at a release
+      # that was never published. The index lives in its own repository, so
+      # that one URL in Termix covers every plugin.
+      - name: Check out the registry
+        uses: actions/checkout@v5
+        with:
+          repository: Platin117/termix-plugins
+          token: ${{ secrets.REGISTRY_TOKEN }}
+          path: registry
+
+      - name: Write the version into the registry index
+        run: |
+          plugin=$(ls *.tmxplug)
+          node scripts/update-index.mjs "$plugin" registry/index.json
+          cd registry
+          if git diff --quiet index.json; then
+            echo "index.json already lists this build."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "chore: snippet-terminals ${GITHUB_REF_NAME}"
+          git push

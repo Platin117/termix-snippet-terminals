@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "panel": "Snippet-Terminals"
+  },
+  "panel": {
+    "hint": "Auf Start drücken: pro Host geht ein Terminal auf und der Befehl wird hineingetippt. Rückfragen und Fehler bleiben sichtbar.",
+    "search": "Snippets durchsuchen",
+    "reload": "Snippets neu laden",
+    "loading": "Snippets werden geladen...",
+    "noSnippets": "Keine Snippets gefunden. Leg eins im Code-Schnipsel-Panel an, dann steht es hier.",
+    "noMatch": "Kein Snippet passt dazu.",
+    "noHostsYet": "Hosts wählen",
+    "hostCount": "{{count}} Hosts",
+    "filterHosts": "Hosts filtern",
+    "loadingHosts": "Hosts werden geladen...",
+    "noHostsMatch": "Kein Host mit SSH passt dazu.",
+    "selectAll": "Alle",
+    "selectNone": "Keine",
+    "run": "In {{count}} Terminals starten",
+    "running": "läuft",
+    "pasteOnly": "Nur einfügen, nicht ausführen",
+    "stop": "Lauf abbrechen",
+    "stagger": "Abstand",
+    "seconds": "{{value}} s",
+    "staggerHint": "So lange bekommt jedes Terminal nach vorne, damit Termix es verbindet. Danach verbinden alle gleichzeitig weiter. Zu kurz: einzelne Tabs bleiben leer.",
+    "edit": "Im Code-Schnipsel-Panel bearbeiten"
+  },
+  "palette": {
+    "group": "In Terminals starten",
+    "hint": "Öffnet pro Host ein Terminal"
+  },
+  "status": {
+    "pending": "wartet",
+    "opening": "öffnet",
+    "waiting": "verbindet",
+    "sent": "gesendet",
+    "noSsh": "kein SSH",
+    "timeout": "kein Terminal",
+    "failed": "fehlgeschlagen",
+    "stopped": "abgebrochen",
+    "unreachable": "keine Verbindung"
+  },
+  "toast": {
+    "allSent": "An {{count}} Terminals gesendet",
+    "someSent": "An {{count}} von {{total}} Terminals gesendet",
+    "noneSent": "Kein Terminal hat den Befehl bekommen",
+    "pickHosts": "Wähl zuerst die Hosts, auf denen dieses Snippet laufen soll.",
+    "needsInputs": "Dieses Snippet fragt nach einer Eingabe; trag sie unten ein und starte dann.",
+    "secrets": "Dieses Snippet benutzt gespeicherte Secrets ({{names}}). Die setzt nur das Snippets-Plugin selbst ein, deshalb lässt es sich von hier nicht in ein Terminal schicken.",
+    "stopped": "Abgebrochen, {{count}} Terminals hatten den Befehl schon"
+  },
+  "settings": {
+    "hostsBySnippet": "Hosts je Snippet",
+    "hostsBySnippetHint": "Auf welchen Hosts ein Snippet ein Terminal öffnet.",
+    "runOptions": "Lauf-Optionen",
+    "runOptionsHint": "Ob der Befehl nur eingefügt statt ausgeführt wird."
+  }
+}
