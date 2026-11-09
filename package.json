@@ -1,7 +1,7 @@
 {
   "name": "@termix-plugin/snippet-terminals",
   "private": true,
-  "version": "0.7.0-beta.1",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "termix-plugin build",

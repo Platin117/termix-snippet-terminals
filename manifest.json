@@ -1,7 +1,7 @@
 {
   "id": "snippet-terminals",
   "name": "Snippet Terminals",
-  "version": "0.7.0-beta.1",
+  "version": "1.0.0",
   "description": "Start a saved snippet from one list: it opens a terminal tab per host and types the command in, where you can answer prompts and read what happened.",
   "author": {
     "name": "Platin117"

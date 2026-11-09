@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0
+
+### Changed
+
+- **Out of beta.** Not a line of code changed since 0.7.0-beta.1. It drove a
+  real set of hosts for days without a surprise, so the version number now
+  says what the plugin already was.
+
 ## 0.7.0-beta.1
 
 The first version published. A beta: it runs a real set of hosts every
