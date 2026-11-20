@@ -32,9 +32,16 @@ const now = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 const tag = `v${version}`;
 const base = `${manifest.repository}/releases`;
 
+// The plugin API major the build targets, and the ranges it needs. Termix
+// reads both to keep a release off installs that can't run it.
+const api = String(manifest.engine?.api ?? "").match(/\d+/)?.[0] ?? "1";
+
 const entry = {
   version,
-  api: "1",
+  api,
+  ...(manifest.engine?.api && manifest.engine?.termix
+    ? { engine: { api: manifest.engine.api, termix: manifest.engine.termix } }
+    : {}),
   url: `${base}/download/${tag}/${pluginFile.split("/").pop()}`,
   sha256: createHash("sha256").update(bytes).digest("hex"),
   signature,
