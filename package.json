@@ -1,7 +1,7 @@
 {
   "name": "@termix-plugin/snippet-terminals",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0-beta.1",
   "type": "module",
   "scripts": {
     "build": "termix-plugin build",
@@ -17,7 +17,7 @@
     "lucide-react": "^1.33.0"
   },
   "devDependencies": {
-    "@termix-ssh/plugin-sdk": "^1.0.22",
+    "@termix-ssh/plugin-sdk": "^2.10.1",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.7",
@@ -33,7 +33,7 @@
     "vitest": "^4.1.11"
   },
   "peerDependencies": {
-    "@termix-ssh/plugin-sdk": "^1.0.22",
+    "@termix-ssh/plugin-sdk": "^2.10.1",
     "react": "^19.2.8",
     "sonner": "^2.0.8"
   },

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0-beta.1
+
+### Changed
+
+- **Built for plugin API 2, so it runs on Termix 26.11.2 again.** That
+  release no longer loads API 1 plugins at all; this one was blocked with
+  "made for an older Termix". The panel now runs in Termix's sandboxed
+  frame. No behaviour changed: it opens and types into terminals only
+  through the SSH Terminal and Snippets actions it always used.
+- **Requires Termix 26.11.2 and plugin API 2.9.** Older installs stay on
+  1.0.0.
+
 ## 1.0.0
 
 ### Changed

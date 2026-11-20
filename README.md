@@ -95,7 +95,7 @@ Server → General) and upload the `.tmxplug` from the
 [releases](https://github.com/Platin117/termix-snippet-terminals/releases) in
 the Plugins area.
 
-Requires Termix 26.10.3 or newer with the SSH Terminal plugin enabled. The
+Requires Termix 26.11.2 or newer with the SSH Terminal plugin enabled. The
 Snippets plugin provides the snippets; without it the panel is empty.
 
 ## Build
